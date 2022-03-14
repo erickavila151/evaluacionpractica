@@ -128,6 +128,7 @@ Content-Type: multipart/form-data; boundary=something</code>
 3. **Realizar nuevamente un request GET a la URL**  [https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json](https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json)
 **¿Qué diferencias se observan entre las llamadas del punto 1 y el 3?**
 - Mi request post fue satisfactorio, ahora mi nombre y correo fueron registrados en la URL y aparecen al momento de hacer un request GET:
+- 
 ![image](https://user-images.githubusercontent.com/69064746/158246928-8bf0e468-0415-4b32-97bd-6989e40e07ba.png)
 
 ---
