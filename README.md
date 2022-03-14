@@ -45,7 +45,7 @@ La primera línea es la línea del request, que contiene su información básica
 4. **¿Qué es un queryString? (En el contexto de una url)**
 - Las Query String o cadenas de consultas es un término que se utiliza para hacer referencia a una interacción con una base de datos. Además, es la parte de una URL que contiene los datos que deben pasar a las aplicaciones web.
 
-5. ¿Qué es el responseCode? ¿Qué significado tiene los posibles valores devueltos?
+5. **¿Qué es el responseCode? ¿Qué significado tiene los posibles valores devueltos?**
 - Los códigos de estado de respuesta HTTP indican si se ha completado satisfactoriamente una solicitud HTTP específica. Las respuestas se agrupan en cinco clases:
 
 |CLASE|RANGO|
@@ -65,11 +65,93 @@ La primera línea es la línea del request, que contiene su información básica
 
 <br>
 
-7. ¿Qué verbo http utiliza el navegador cuando accedemos a una página?
+7. **¿Qué verbo http utiliza el navegador cuando accedemos a una página?**
 -  Se utiliza el verbo GET
 
-8. Explicar brevemente qué son las estructuras de datos JSON y XML dando ejemplo de estructuras posibles.
-- 
+8. **Explicar brevemente qué son las estructuras de datos JSON y XML dando ejemplo de estructuras posibles.**
+- _**JSON**_ son cadenas - útiles cuando se quiere transmitir datos a través de una red. Debe ser convertido a un objeto nativo de JavaScript cuando se requiera acceder a sus datos. Ésto no es un problema, dado que JavaScript posee un objeto global _**JSON**_ que tiene los métodos disponibles para convertir entre ellos. Como se describió previamente, un _**JSON**_ es una cadena cuyo formato recuerda al de los objetos literales JavaScript. Es posible incluir los mismos tipos de datos básicos dentro de un _**JSON**_ que en un objeto estándar de JavaScript - cadenas, números, arreglos, booleanos, y otros literales de objeto. Esto permite construir una jerarquía de datos, como ésta:
+
+
+![carbon (2)](https://user-images.githubusercontent.com/69064746/158222562-44a46f06-532e-4d4f-8973-a559ebdf9482.png)
+
+- _**XML**_ es un lenguaje de marcado similar a HTML. Significa Extensible Markup Language (Lenguaje de Marcado Extensible) y es una especificación de W3C como lenguaje de marcado de propósito general. Esto significa que, a diferencia de otros lenguajes de marcado, _**XML**_ no está predefinido, por lo que debes definir tus propias etiquetas. El propósito principal del lenguaje es compartir datos a través de diferentes sistemas, como Internet. Aquí un rápido ejemplo:
+
+
+![carbon (3)](https://user-images.githubusercontent.com/69064746/158232852-f49d86be-61df-44ca-b7ee-3cd4011d4108.png)
+
+9. **Explicar brevemente el estándar SOAP**
+- La comunicación dentro de internet esta establecida principalmente bajo protocolos como ya vimos antes, como por ejemplo: HTTPS, FTP o TCP. Sin embargo, _**SOAP**_ es fundamental para los servicios web, interfaces a través de las cuales un dispositivo puede hacer uso de los servicios de un servidor, como por ejemplo las tiendas en línea como Amazon.
+
+<br/>
+
+- SOAP  juega un papel importante cuando un sistema quiere acceder a otro de manera ordenada y limitada. En lugar de darle al cliente solicitante acceso total al servidor, con un protocolo como SOAP puede limitarse el acceso a las funciones que necesita. La arquitectura del protocolo, al facilitar un marco al que la aplicación puede incorporarse, ofrece así la ventaja de que sistemas muy diferentes pueden cooperar entre sí. Ejemplo de una solicitud HTTP con SOAP :
+
+
+![carbon (4)](https://user-images.githubusercontent.com/69064746/158235664-842d562d-09e1-491d-90e9-7e256ff3b0b9.png)
+
+10. **Explicar brevemente el estándar RESTFUL**
+- REST es una lógica de restricciones y recomendaciones bajo la cual se construyen API´s, resultando en RESTFUL API´s y no está atado a ningún lenguaje de programación, es por esto que se ha convertido en el estándar a la hora de hacer aplicaciones con una relación cliente servidor.
+
+11. **Qué son los headers en un request? ¿Para qué se utiliza el key Content-type en un header?**
+- Los headers en un request contienen toda la información básica (método HTTP, URL y versión) de la petición, a la espera de una **RESPONSE**
+
+<br/>
+- <code> Content-Type</code> es la propiedad de cabecera (header) usada para indicar el  media type (en-US) del recurso. En solicitudes (tales como <code>POST</code> o <code> PUT</code>), el cliente indica al servidor que tipo de dato es enviado actualmente.
+
+### Sintaxis
+<code>Content-Type: text/html; charset=utf-8
+  <br/>
+Content-Type: multipart/form-data; boundary=something</code>
+
+- Por ejemplo: En una solicitud <code>POST</code>  , que resulta del envio de un formulario html, el <code> Content-Type</code> de la solicitud es especificado como un atributo enctype del elemento <code> form </code> .
+
+![carbon (5)](https://user-images.githubusercontent.com/69064746/158243517-b52962c0-e7d7-450e-bd43-54effb4b7bcc.png)
+
+---
+
+## Ejercicio 3
+
+1. **Realizar un request GET a la URL**: [https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json](https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json)
+- ![image](https://user-images.githubusercontent.com/69064746/158244276-fbee3542-2ca8-4601-913a-1c8a38b080e8.png)
+
+2. **Realizar un request POST a la URL anterior, y con body:**
+
+<code>
+{
+  "name":"Tu nombre"
+  "email": tunombre.tuapellido@procontacto.com.mx
+}
+</code>
+
+- ![image](https://user-images.githubusercontent.com/69064746/158246398-1a3fbdc4-d600-4656-b342-f2be680f2918.png)
+
+3. **Realizar nuevamente un request GET a la URL**  [https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json](https://procontacto-reclutamiento-default-rtdb.firebaseio.com/contacts.json)
+**¿Qué diferencias se observan entre las llamadas del punto 1 y el 3?**
+- Mi request post fue satisfactorio, ahora mi nombre y correo fueron registrados en la URL y aparecen al momento de hacer un request GET:
+![image](https://user-images.githubusercontent.com/69064746/158246928-8bf0e468-0415-4b32-97bd-6989e40e07ba.png)
+
+---
+
+## Ejercicio 4
+
+- Solicitar usuario de Trailhead a ariel.tarsitano@procontacto.com.mx
+- Cambiar el idioma de Trailhead a inglés.
+- Realizar los siguientes módulos de Trailhead:
+  - Fundamento de la plataforma Salesforce 
+  - Fundamentos de Apex y .NET
+  - Modelado de datos
+  - Fundamentos y base de datos de Apex
+  - Desencadenadores de Apex
+  - Apex Integration Services
+
+- Se recomienda usar el mismo Playground para todos los módulos solicitados. Excepto que se solicite crear uno
+nuevo en el enunciado del Módulo.
+
+
+
+
+
+
 
 
 
